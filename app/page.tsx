@@ -118,6 +118,11 @@ export default function Home() {
         </section>
       </section>
 
+      <section className="quote-cta" aria-label="Patriot Neighborhood Services tagline">
+        <p>We handle the to-do list.</p>
+        <p>You enjoy more freedom.</p>
+      </section>
+
       <section className="services-section" aria-labelledby="services-heading">
         <div className="services-heading-row">
           <span aria-hidden="true" />
