@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const contactItems = [
   { icon: "phone", label: "(214) 478-6215" },
   { icon: "mail", label: "ALEX@PATRIOTNEIGHBORHOODSERVICES.COM" },
@@ -40,14 +42,14 @@ export default function Home() {
       </section>
 
       <section className="brand-lockup">
-        <div className="star-emblem" aria-hidden="true">
-          <span className="wing wing-left" />
-          <span className="wing wing-right" />
-          <span className="main-star">★</span>
-        </div>
-        <h1>PATRIOT</h1>
-        <div className="star-divider" aria-hidden="true">★★★★★★★</div>
-        <p className="service-line">NEIGHBORHOOD SERVICES</p>
+        <Image
+          className="patriot-logo"
+          src="/patriot-logo.png"
+          alt="Patriot Neighborhood Services"
+          width={1186}
+          height={440}
+          priority
+        />
         <p className="operator">ALEX STOUFFER - OPERATOR</p>
       </section>
 
