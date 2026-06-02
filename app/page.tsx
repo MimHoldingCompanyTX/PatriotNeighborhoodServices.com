@@ -87,25 +87,14 @@ export default function Home() {
   return (
     <main className="site-shell">
       <section className="business-card" aria-label="Patriot Neighborhood Services business card inspired landing page">
-        <section className="flag-panel" aria-hidden="true">
-          <div className="blue-field" />
-          <div className="stripe stripe-one" />
-          <div className="stripe stripe-two" />
-          <div className="stripe stripe-three" />
-          <div className="stripe stripe-four" />
-        </section>
-
-        <section className="brand-lockup">
-          <Image
-            className="patriot-logo"
-            src="/patriot-logo.png"
-            alt="Patriot Neighborhood Services"
-            width={1186}
-            height={440}
-            priority
-          />
-          <p className="operator">ALEX STOUFFER - OPERATOR</p>
-        </section>
+        <Image
+          className="front-header"
+          src="/front-header.png"
+          alt="Patriot Neighborhood Services — Alex Stouffer, Operator"
+          width={2271}
+          height={918}
+          priority
+        />
 
         <section className="card-footer">
           <address className="contact-list">
