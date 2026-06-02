@@ -42,72 +42,14 @@ body {
   inset: 0 0 auto 0;
   height: 36%;
   overflow: hidden;
-  background:
-    radial-gradient(ellipse at 48% 88%, rgb(255 255 255 / 0.96) 0 17%, rgb(255 255 255 / 0.74) 34%, transparent 68%),
-    linear-gradient(180deg, rgb(255 255 255 / 0) 0 58%, #ffffff 100%);
-}
-
-.flag-panel::before {
-  content: "✦ ✦ ✦ ✦ ✦ ✦ ✦\A ✦ ✦ ✦ ✦ ✦ ✦\A ✦ ✦ ✦ ✦ ✦ ✦ ✦";
-  white-space: pre;
-  position: absolute;
-  left: -2.3%;
-  top: -11%;
-  width: 37%;
-  height: 100%;
-  padding: 2.2% 0 0 3.6%;
-  color: #ffffff;
-  font-size: clamp(10px, 1.95vw, 23px);
-  line-height: 1.42;
-  letter-spacing: clamp(3px, 0.78vw, 10px);
-  transform: rotate(-6deg) skewX(-8deg);
-  background:
-    radial-gradient(ellipse at 56% 50%, rgb(255 255 255 / 0.18), transparent 55%),
-    linear-gradient(135deg, #064f83 0%, #0f6a9f 46%, #133c67 100%);
-  filter: saturate(1.05);
-}
-
-.flag-panel::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, transparent 0 54%, rgb(255 255 255 / 0.93) 82%, #ffffff 100%),
-    radial-gradient(ellipse at 42% 92%, rgb(255 255 255 / 0.92) 0 16%, transparent 48%);
+  background-image: url("/flag-header.png");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 .stripe {
-  position: absolute;
-  right: -7%;
-  width: 82%;
-  height: 22%;
-  border-radius: 50%;
-  transform-origin: left center;
-  filter: drop-shadow(0 5px 4px rgb(8 24 49 / 0.14));
-}
-
-.stripe-one {
-  top: -3%;
-  background: #c91436;
-  transform: rotate(5deg) skewX(-16deg);
-}
-
-.stripe-two {
-  top: 12%;
-  background: #ffffff;
-  transform: rotate(-1deg) skewX(-16deg);
-}
-
-.stripe-three {
-  top: 28%;
-  background: #c91436;
-  transform: rotate(7deg) skewX(-16deg);
-}
-
-.stripe-four {
-  top: 47%;
-  background: #ffffff;
-  transform: rotate(-6deg) skewX(-16deg);
+  display: none;
 }
 
 .brand-lockup {
