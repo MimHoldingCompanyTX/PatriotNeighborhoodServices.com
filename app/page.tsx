@@ -127,6 +127,12 @@ export default function Home() {
         <p>You enjoy more freedom.</p>
       </section>
 
+      <div className="section-call-cta-wrap">
+        <a className="section-call-cta" href="tel:2144786215">
+          Call or text 214-478-6215
+        </a>
+      </div>
+
       <section className="services-section" aria-labelledby="services-heading">
         <div className="services-heading-row">
           <span aria-hidden="true" />
