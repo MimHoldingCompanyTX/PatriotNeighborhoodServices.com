@@ -112,7 +112,8 @@ export default function Home() {
 
           <p className="pride-message">
             <span>SERVING OUR</span>
-            <span>NEIGHBORHOODS</span>
+            <span>NEIGHBORS IN</span>
+            <span>ROCKWALL &amp; HEATH</span>
           </p>
         </section>
       </section>
