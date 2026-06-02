@@ -154,6 +154,12 @@ export default function Home() {
 
         <p className="services-tagline">Strong values. Quality work. Reliable neighborhood service.</p>
       </section>
+
+      <div className="section-call-cta-wrap bottom-call-cta-wrap">
+        <a className="section-call-cta" href="tel:2144786215">
+          Call or text 214-478-6215
+        </a>
+      </div>
     </main>
   );
 }
