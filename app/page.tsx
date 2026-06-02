@@ -96,6 +96,10 @@ export default function Home() {
           priority
         />
 
+        <a className="top-call-cta" href="tel:2144786215">
+          Call or text 214-478-6215
+        </a>
+
         <section className="card-footer">
           <address className="contact-list">
             {contactItems.map((item) => (
