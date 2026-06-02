@@ -183,10 +183,9 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 52px;
-  padding: clamp(11px, 1.1vw, 15px) clamp(18px, 2vw, 30px);
+  padding: clamp(9px, 1vw, 14px) clamp(14px, 1.8vw, 26px);
   color: #ffffff;
-  font-size: clamp(18px, 2.35vw, 32px);
+  font-size: clamp(15px, 1.7vw, 24px);
   font-weight: 900;
   line-height: 1;
   text-align: center;
@@ -194,9 +193,9 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.01em;
   background: var(--patriot-blue);
-  border: 3px solid #ffffff;
+  border: clamp(2px, 0.25vw, 4px) solid #ffffff;
   border-radius: 999px;
-  box-shadow: 0 12px 24px rgb(8 24 49 / 0.2);
+  box-shadow: 0 10px 22px rgb(0 0 0 / 0.28);
 }
 
 .services-section {
@@ -304,13 +303,17 @@ body {
 }
 
 @media (max-width: 760px) {
-  .top-call-cta {
-    top: 10px;
-    right: 10px;
+  .top-call-cta,
+  .section-call-cta {
     max-width: calc(100vw - 20px);
     padding: 9px 13px;
     font-size: clamp(13px, 3.6vw, 16px);
     white-space: nowrap;
+  }
+
+  .top-call-cta {
+    top: 10px;
+    right: 10px;
   }
 
   .business-card {
