@@ -16,11 +16,13 @@ html,
 body {
   margin: 0;
   min-height: 100vh;
+  width: 100%;
 }
 
 body {
-  padding: clamp(10px, 2vw, 28px);
-  background: #e9edf2;
+  padding: 0;
+  overflow-x: hidden;
+  background: #ffffff;
   color: var(--patriot-navy);
   font-family: "Roboto Condensed", Impact, "Arial Narrow", sans-serif;
 }
@@ -28,19 +30,19 @@ body {
 .site-shell {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: clamp(22px, 4vw, 44px);
+  align-items: stretch;
+  gap: 0;
   width: 100%;
+  min-height: 100vh;
 }
 
 .business-card {
   position: relative;
-  width: min(100%, 1100px);
+  width: 100%;
   aspect-ratio: 755 / 433;
-  min-height: 560px;
+  min-height: min(100vh, 760px);
   overflow: hidden;
   background: #ffffff;
-  box-shadow: 0 18px 60px var(--soft-shadow);
 }
 
 .front-header {
@@ -123,11 +125,10 @@ body {
 }
 
 .services-section {
-  width: min(100%, 1100px);
+  width: 100%;
   padding: clamp(34px, 5vw, 58px) clamp(24px, 5vw, 64px);
   background: linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%);
   border-top: 8px solid var(--patriot-red);
-  box-shadow: 0 18px 60px var(--soft-shadow);
 }
 
 .services-heading-row {
@@ -229,20 +230,10 @@ body {
 }
 
 @media (max-width: 760px) {
-  body {
-    padding: 0;
-    background: #ffffff;
-  }
-
-  .site-shell {
-    gap: 0;
-  }
-
   .business-card {
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     aspect-ratio: auto;
-    box-shadow: none;
   }
 
   .card-footer {
@@ -268,9 +259,8 @@ body {
   }
 
   .services-section {
-    width: 100vw;
+    width: 100%;
     padding: 36px 18px 42px;
-    box-shadow: none;
   }
 
   .services-heading-row {
