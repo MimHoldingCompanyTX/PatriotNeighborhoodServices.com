@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Patriot Neighborhood Services | Alex Stouffer",
   description:
-    "Patriot Neighborhood Services by Alex Stouffer — serving our neighborhoods with pride.",
+    "Patriot Neighborhood Services by Alex Stouffer — serving our neighborhoods.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

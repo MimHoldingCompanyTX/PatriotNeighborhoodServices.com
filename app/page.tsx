@@ -68,7 +68,6 @@ export default function Home() {
         <p className="pride-message">
           <span>SERVING OUR</span>
           <span>NEIGHBORHOODS</span>
-          <strong>WITH PRIDE</strong>
         </p>
       </section>
     </main>
