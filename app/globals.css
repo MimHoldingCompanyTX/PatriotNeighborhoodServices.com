@@ -318,7 +318,7 @@ body {
 
   .business-card {
     width: 100%;
-    min-height: 100vh;
+    min-height: auto;
     aspect-ratio: auto;
   }
 
@@ -328,8 +328,8 @@ body {
     right: auto;
     bottom: auto;
     grid-template-columns: 1fr;
-    gap: 28px;
-    margin: 8vh auto 36px;
+    gap: 24px;
+    margin: 28px auto 24px;
     width: min(88vw, 520px);
   }
 
