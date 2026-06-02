@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# Editor files
+.vscode/
+.idea/
+
+# Dependencies/build output for future tooling
+node_modules/
+dist/
+build/
+.env
