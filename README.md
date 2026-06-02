@@ -1,5 +1,18 @@
 # Patriot Neighborhood Services
 
-Hello world starter website for PatriotNeighborhoodServices.com.
+Next.js starter website for PatriotNeighborhoodServices.com.
 
-More site structure and content will be added later.
+## Development
+
+```bash
+npm install
+npm run dev
+```
+
+Open <http://localhost:3000> to view the site locally.
+
+## Build
+
+```bash
+npm run build
+```

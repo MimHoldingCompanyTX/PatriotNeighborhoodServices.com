@@ -5,8 +5,19 @@
 .vscode/
 .idea/
 
-# Dependencies/build output for future tooling
+# Dependencies/build output
 node_modules/
+.next/
+out/
 dist/
 build/
+
+# Environment
 .env
+.env*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
