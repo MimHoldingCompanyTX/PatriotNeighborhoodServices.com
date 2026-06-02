@@ -6,6 +6,13 @@ const contactItems = [
   { icon: "web", label: "WWW.PATRIOTNEIGHBORHOODSERVICES.COM" },
 ];
 
+const services = [
+  { icon: "flag", title: "Flag Installation and Maintenance" },
+  { icon: "power-washing", title: "Power Washing" },
+  { icon: "detailing", title: "Detailing", detail: "Auto, truck, golf cart" },
+  { icon: "exterior-cleaning", title: "Exterior Cleaning" },
+];
+
 function ContactIcon({ type }: { type: string }) {
   if (type === "phone") {
     return (
@@ -30,47 +37,117 @@ function ContactIcon({ type }: { type: string }) {
   );
 }
 
+function ServiceIcon({ type }: { type: string }) {
+  if (type === "flag") {
+    return (
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M16 55V9" />
+        <path d="M18 11c10-5 17 5 28 0v27c-11 5-18-5-28 0" />
+        <path d="M23 17c7-2 13 4 20 1M23 24c7-2 13 4 20 1M23 31c7-2 13 4 20 1" />
+      </svg>
+    );
+  }
+
+  if (type === "power-washing") {
+    return (
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M15 38 28 25l9 9-13 13c-4 4-12-5-9-9Z" />
+        <path d="m35 23 7-7 8 8-7 7" />
+        <path d="M44 27h13" />
+        <path d="M50 20 60 15M51 34l9 5" />
+        <path d="M22 41 13 55" />
+      </svg>
+    );
+  }
+
+  if (type === "detailing") {
+    return (
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M14 38h36l-4-11c-1-3-4-5-8-5H26c-4 0-7 2-8 5l-4 11Z" />
+        <path d="M12 38v9h40v-9" />
+        <circle cx="21" cy="47" r="4" />
+        <circle cx="43" cy="47" r="4" />
+        <path d="m13 27-5-3M51 27l5-3M28 13l2 5M42 11l-3 6M50 16l-5 4" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M12 34 32 17l20 17" />
+      <path d="M18 32v20h28V32" />
+      <path d="M28 52V40h8v12" />
+      <path d="M25 33h5v5h-5zM34 33h5v5h-5z" />
+      <path d="M49 48c4-4 6-9 7-15" />
+    </svg>
+  );
+}
+
 export default function Home() {
   return (
-    <main className="business-card" aria-label="Patriot Neighborhood Services business card inspired landing page">
-      <section className="flag-panel" aria-hidden="true">
-        <div className="blue-field" />
-        <div className="stripe stripe-one" />
-        <div className="stripe stripe-two" />
-        <div className="stripe stripe-three" />
-        <div className="stripe stripe-four" />
+    <main className="site-shell">
+      <section className="business-card" aria-label="Patriot Neighborhood Services business card inspired landing page">
+        <section className="flag-panel" aria-hidden="true">
+          <div className="blue-field" />
+          <div className="stripe stripe-one" />
+          <div className="stripe stripe-two" />
+          <div className="stripe stripe-three" />
+          <div className="stripe stripe-four" />
+        </section>
+
+        <section className="brand-lockup">
+          <Image
+            className="patriot-logo"
+            src="/patriot-logo.png"
+            alt="Patriot Neighborhood Services"
+            width={1186}
+            height={440}
+            priority
+          />
+          <p className="operator">ALEX STOUFFER - OPERATOR</p>
+        </section>
+
+        <section className="card-footer">
+          <address className="contact-list">
+            {contactItems.map((item) => (
+              <div className="contact-row" key={item.label}>
+                <span className="icon-circle">
+                  <ContactIcon type={item.icon} />
+                </span>
+                <span>{item.label}</span>
+              </div>
+            ))}
+          </address>
+
+          <div className="footer-divider" aria-hidden="true" />
+
+          <p className="pride-message">
+            <span>SERVING OUR</span>
+            <span>NEIGHBORHOODS</span>
+          </p>
+        </section>
       </section>
 
-      <section className="brand-lockup">
-        <Image
-          className="patriot-logo"
-          src="/patriot-logo.png"
-          alt="Patriot Neighborhood Services"
-          width={1186}
-          height={440}
-          priority
-        />
-        <p className="operator">ALEX STOUFFER - OPERATOR</p>
-      </section>
+      <section className="services-section" aria-labelledby="services-heading">
+        <div className="services-heading-row">
+          <span aria-hidden="true" />
+          <h2 id="services-heading">Services We Provide</h2>
+          <span aria-hidden="true" />
+        </div>
 
-      <section className="card-footer">
-        <address className="contact-list">
-          {contactItems.map((item) => (
-            <div className="contact-row" key={item.label}>
-              <span className="icon-circle">
-                <ContactIcon type={item.icon} />
-              </span>
-              <span>{item.label}</span>
-            </div>
+        <div className="services-grid">
+          {services.map((service) => (
+            <article className="service-card" key={service.title}>
+              <div className="service-icon">
+                <ServiceIcon type={service.icon} />
+              </div>
+              <h3>{service.title}</h3>
+              {service.detail ? <p>{service.detail}</p> : null}
+            </article>
           ))}
-        </address>
+        </div>
 
-        <div className="footer-divider" aria-hidden="true" />
-
-        <p className="pride-message">
-          <span>SERVING OUR</span>
-          <span>NEIGHBORHOODS</span>
-        </p>
+        <p className="services-tagline">Strong values. Quality work. Reliable neighborhood service.</p>
       </section>
     </main>
   );

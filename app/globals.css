@@ -19,12 +19,18 @@ body {
 }
 
 body {
-  display: grid;
-  place-items: center;
   padding: clamp(10px, 2vw, 28px);
   background: #e9edf2;
   color: var(--patriot-navy);
   font-family: "Roboto Condensed", Impact, "Arial Narrow", sans-serif;
+}
+
+.site-shell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(22px, 4vw, 44px);
+  width: 100%;
 }
 
 .business-card {
@@ -150,11 +156,120 @@ body {
   letter-spacing: 0.03em;
 }
 
+.services-section {
+  width: min(100%, 1100px);
+  padding: clamp(34px, 5vw, 58px) clamp(24px, 5vw, 64px);
+  background: linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%);
+  border-top: 8px solid var(--patriot-red);
+  box-shadow: 0 18px 60px var(--soft-shadow);
+}
+
+.services-heading-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: clamp(16px, 3vw, 34px);
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+
+.services-heading-row span {
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--patriot-red));
+}
+
+.services-heading-row span:last-child {
+  background: linear-gradient(90deg, var(--patriot-red), transparent);
+}
+
+.services-section h2 {
+  margin: 0;
+  color: var(--patriot-navy);
+  font-size: clamp(30px, 4.6vw, 52px);
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(16px, 2.4vw, 28px);
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 260px;
+  padding: clamp(20px, 3vw, 30px) clamp(14px, 2vw, 22px);
+  text-align: center;
+  background: #ffffff;
+  border: 2px solid rgb(8 24 49 / 0.1);
+  border-radius: 24px;
+  box-shadow: 0 12px 26px rgb(8 24 49 / 0.08);
+}
+
+.service-icon {
+  display: grid;
+  place-items: center;
+  width: clamp(86px, 10vw, 118px);
+  height: clamp(86px, 10vw, 118px);
+  margin-bottom: clamp(16px, 2vw, 22px);
+  color: #ffffff;
+  background: var(--patriot-navy);
+  border: 6px solid #ffffff;
+  border-radius: 999px;
+  outline: 3px solid var(--patriot-navy);
+}
+
+.service-icon svg {
+  width: 66%;
+  height: 66%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 4.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.service-card h3 {
+  margin: 0;
+  color: var(--patriot-navy);
+  font-size: clamp(22px, 2.7vw, 31px);
+  font-weight: 900;
+  line-height: 0.98;
+  text-transform: uppercase;
+}
+
+.service-card p {
+  margin: 8px 0 0;
+  color: var(--patriot-red);
+  font-size: clamp(16px, 1.9vw, 22px);
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.services-tagline {
+  margin: clamp(30px, 4vw, 42px) 0 0;
+  color: var(--patriot-navy);
+  font-size: clamp(24px, 3.5vw, 40px);
+  font-weight: 900;
+  line-height: 1.05;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 @media (max-width: 760px) {
   body {
-    align-items: start;
     padding: 0;
     background: #ffffff;
+  }
+
+  .site-shell {
+    gap: 0;
   }
 
   .business-card {
@@ -172,17 +287,8 @@ body {
     padding: 17vh 16px 0;
   }
 
-  .star-emblem {
-    width: min(82vw, 420px);
-    margin-bottom: -18px;
-  }
-
-  h1 {
-    font-size: clamp(62px, 17vw, 108px);
-  }
-
-  .service-line {
-    font-size: clamp(25px, 7vw, 43px);
+  .patriot-logo {
+    width: min(92vw, 520px);
   }
 
   .operator {
@@ -209,5 +315,28 @@ body {
   .contact-row {
     font-size: clamp(17px, 5vw, 24px);
     overflow-wrap: anywhere;
+  }
+
+  .services-section {
+    width: 100vw;
+    padding: 36px 18px 42px;
+    box-shadow: none;
+  }
+
+  .services-heading-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .services-heading-row span {
+    display: none;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    min-height: auto;
   }
 }
