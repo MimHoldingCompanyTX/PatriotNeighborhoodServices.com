@@ -8,12 +8,6 @@ const contactItems = [
 
 const services = [
   {
-    icon: "flag",
-    title: "Flag Installation",
-    summary: "Install. Maintain. Display.",
-    chips: ["Setup", "Care", "Upkeep"],
-  },
-  {
     icon: "power-washing",
     title: "Power Washing",
     summary: "Driveways. Patios. Walkways.",
@@ -24,6 +18,12 @@ const services = [
     title: "Detailing",
     summary: "Auto. Truck. Golf cart.",
     chips: ["Auto", "Truck", "Golf cart"],
+  },
+  {
+    icon: "flag",
+    title: "Flag Installation",
+    summary: "Install. Maintain. Display.",
+    chips: ["Setup", "Care", "Upkeep"],
   },
   {
     icon: "exterior-cleaning",
