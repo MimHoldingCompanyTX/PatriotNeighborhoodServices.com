@@ -183,8 +183,7 @@ export default function Home() {
 
         <div className="services-bottom-band">
           <div>
-            <strong>One call. A cleaner to-do list.</strong>
-            <span>We handle the chores you keep putting off.</span>
+            <strong>Strong values. Quality work. Reliable neighborhood service.</strong>
           </div>
           <a className="services-text-alex" href="tel:2144786215">Text Alex</a>
         </div>
