@@ -7,10 +7,30 @@ const contactItems = [
 ];
 
 const services = [
-  { icon: "flag", title: "Flag Installation and Maintenance" },
-  { icon: "power-washing", title: "Power Washing" },
-  { icon: "detailing", title: "Detailing", detail: "Auto, truck, golf cart" },
-  { icon: "exterior-cleaning", title: "Exterior Cleaning" },
+  {
+    icon: "flag",
+    title: "Flag Installation",
+    summary: "Install. Maintain. Display.",
+    chips: ["Setup", "Care", "Upkeep"],
+  },
+  {
+    icon: "power-washing",
+    title: "Power Washing",
+    summary: "Driveways. Patios. Walkways.",
+    chips: ["Concrete", "Patios", "Fences"],
+  },
+  {
+    icon: "detailing",
+    title: "Detailing",
+    summary: "Auto. Truck. Golf cart.",
+    chips: ["Auto", "Truck", "Golf cart"],
+  },
+  {
+    icon: "exterior-cleaning",
+    title: "Exterior Cleaning",
+    summary: "House. Yard. Hard surfaces.",
+    chips: ["Outdoor", "Refresh", "Clean up"],
+  },
 ];
 
 function ContactIcon({ type }: { type: string }) {
@@ -134,25 +154,40 @@ export default function Home() {
       </div>
 
       <section className="services-section" aria-labelledby="services-heading">
-        <div className="services-heading-row">
-          <span aria-hidden="true" />
-          <h2 id="services-heading">Services We Provide</h2>
-          <span aria-hidden="true" />
+        <div className="services-section-top">
+          <h2 id="services-heading">Services Offered</h2>
+          <p>Simple neighborhood help for Rockwall &amp; Heath.</p>
         </div>
 
-        <div className="services-grid">
-          {services.map((service) => (
-            <article className="service-card" key={service.title}>
+        <div className="services-visual-grid">
+          {services.map((service, index) => (
+            <a
+              className={`service-tile ${service.icon}`}
+              href="tel:2144786215"
+              key={service.title}
+              data-number={String(index + 1).padStart(2, "0")}
+            >
               <div className="service-icon">
                 <ServiceIcon type={service.icon} />
               </div>
               <h3>{service.title}</h3>
-              {service.detail ? <p>{service.detail}</p> : null}
-            </article>
+              <p className="service-summary">{service.summary}</p>
+              <div className="service-chips" aria-label={`${service.title} details`}>
+                {service.chips.map((chip) => (
+                  <span className="service-chip" key={chip}>{chip}</span>
+                ))}
+              </div>
+            </a>
           ))}
         </div>
 
-        <p className="services-tagline">Strong values. Quality work. Reliable neighborhood service.</p>
+        <div className="services-bottom-band">
+          <div>
+            <strong>One call. A cleaner to-do list.</strong>
+            <span>We handle the chores you keep putting off.</span>
+          </div>
+          <a className="services-text-alex" href="tel:2144786215">Text Alex</a>
+        </div>
       </section>
 
       <div className="section-call-cta-wrap bottom-call-cta-wrap">
