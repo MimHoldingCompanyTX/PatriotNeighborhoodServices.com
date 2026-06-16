@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Patriot Neighborhood Services | Alex Stouffer",
   description:
-    "Patriot Neighborhood Services by Alex Stouffer — serving our neighborhoods.",
+    "Meet Alex Stouffer, founder of Patriot Neighborhood Services, serving Rockwall and Heath with detailing, power washing, flag installation, and exterior cleaning.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

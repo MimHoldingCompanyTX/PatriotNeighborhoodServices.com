@@ -153,6 +153,33 @@ export default function Home() {
         </a>
       </div>
 
+      <section className="owner-section" aria-labelledby="owner-heading">
+        <div className="owner-photo-card">
+          <Image
+            className="owner-photo"
+            src="/alex-stouffer.jpg"
+            alt="Alex Stouffer, founder of Patriot Neighborhood Services"
+            width={1254}
+            height={1254}
+            sizes="(max-width: 760px) 88vw, 420px"
+          />
+        </div>
+
+        <div className="owner-copy">
+          <p className="owner-eyebrow">Meet the owner</p>
+          <h2 id="owner-heading">Alex Stouffer</h2>
+          <p className="owner-lead">
+            Alex Stouffer is the founder of Patriot Neighborhood Services and will be a senior at Heath High School this fall.
+          </p>
+          <p>
+            Over the past three years, Alex has built a reputation for dependable service, meticulous attention to detail, and a strong work ethic through vehicle detailing and power washing.
+          </p>
+          <p>
+            When he’s not working, you’ll usually find him under the hood of a car, spending time with friends, or planning the next way to grow his business.
+          </p>
+        </div>
+      </section>
+
       <section className="services-section" aria-labelledby="services-heading">
         <div className="services-section-top">
           <h2 id="services-heading">Services Offered</h2>
