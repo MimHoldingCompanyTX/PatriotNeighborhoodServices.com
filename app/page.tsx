@@ -33,6 +33,27 @@ const services = [
   },
 ];
 
+const testimonials = [
+  {
+    quote:
+      "Alex has detailed several of our cars. He is such a polite and industrious young man! We were impressed with how much time and care he took with his work, and how he truly did his best. We highly recommend him!",
+    name: "Melissa & Michael C.",
+    service: "Auto detailing",
+  },
+  {
+    quote:
+      "I have had my vehicles detailed at several places over the years, none of them did such a great job as Alex. It looked brand new and there was not a dog hair to be found!!! I recommend him 100% and would give him a 10/10.",
+    name: "Elizabeth L.",
+    service: "Vehicle detailing",
+  },
+  {
+    quote:
+      "Alex did an amazing job detailing my Lexus vehicle. This car looked better than when I picked it up from the dealership, no joke! His attention to detail left not one speck of dirt or dust. I highly recommend him.",
+    name: "Pat I.",
+    service: "Lexus detailing",
+  },
+];
+
 function ContactIcon({ type }: { type: string }) {
   if (type === "phone") {
     return (
@@ -155,6 +176,29 @@ export default function Home() {
             <strong>We handle the to-do list. You enjoy more freedom.</strong>
           </div>
           <a className="services-text-alex" href="tel:2144786215">Text Alex</a>
+        </div>
+      </section>
+
+      <section className="testimonials-section" aria-labelledby="testimonials-heading">
+        <div className="testimonials-header">
+          <p className="testimonials-eyebrow">Trusted by local families</p>
+          <h2 id="testimonials-heading">What Neighbors Are Saying</h2>
+          <p>
+            Real reviews from customers who trusted Alex with their vehicles.
+          </p>
+        </div>
+
+        <div className="testimonials-scroll" aria-label="Customer testimonials">
+          {testimonials.map((testimonial) => (
+            <article className="testimonial-card" key={testimonial.name}>
+              <div className="testimonial-stars" aria-label="Five star review">★★★★★</div>
+              <p className="testimonial-quote">“{testimonial.quote}”</p>
+              <footer className="testimonial-footer">
+                <strong>{testimonial.name}</strong>
+                <span>{testimonial.service}</span>
+              </footer>
+            </article>
+          ))}
         </div>
       </section>
 
