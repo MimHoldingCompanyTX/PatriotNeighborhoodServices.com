@@ -39,8 +39,6 @@ body {
 .business-card {
   position: relative;
   width: 100%;
-  aspect-ratio: 755 / 433;
-  min-height: min(100vh, 760px);
   overflow: hidden;
   background: #ffffff;
 }
@@ -138,6 +136,17 @@ body {
 .pride-message span,
 .pride-message strong {
   display: block;
+}
+
+.contact-strip {
+  position: relative;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  width: min(1220px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: clamp(24px, 4vw, 44px) 0 clamp(28px, 4.6vw, 52px);
+  background: #ffffff;
 }
 
 .pride-message strong {
@@ -300,6 +309,10 @@ body {
   margin: 0 auto;
   padding: clamp(38px, 6vw, 78px) 0;
   background: #ffffff;
+}
+
+.services-section-featured {
+  padding-top: clamp(26px, 4.2vw, 52px);
 }
 
 .services-section-top {

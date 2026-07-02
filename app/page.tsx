@@ -120,26 +120,63 @@ export default function Home() {
           Call or text 214-478-6215
         </a>
 
-        <section className="card-footer">
-          <address className="contact-list">
-            {contactItems.map((item) => (
-              <div className="contact-row" key={item.label}>
-                <span className="icon-circle">
-                  <ContactIcon type={item.icon} />
-                </span>
-                <span>{item.label}</span>
+      </section>
+
+      <section className="services-section services-section-featured" aria-labelledby="services-heading">
+        <div className="services-section-top">
+          <h2 id="services-heading">Services Offered</h2>
+          <p>Serving our neighbors in Rockwall &amp; Heath.</p>
+        </div>
+
+        <div className="services-visual-grid">
+          {services.map((service, index) => (
+            <a
+              className={`service-tile ${service.icon}`}
+              href="tel:2144786215"
+              key={service.title}
+              data-number={String(index + 1).padStart(2, "0")}
+            >
+              <div className="service-icon">
+                <ServiceIcon type={service.icon} />
               </div>
-            ))}
-          </address>
+              <h3>{service.title}</h3>
+              <p className="service-summary">{service.summary}</p>
+              <div className="service-chips" aria-label={`${service.title} details`}>
+                {service.chips.map((chip) => (
+                  <span className="service-chip" key={chip}>{chip}</span>
+                ))}
+              </div>
+            </a>
+          ))}
+        </div>
 
-          <div className="footer-divider" aria-hidden="true" />
+        <div className="services-bottom-band">
+          <div>
+            <strong>We handle the to-do list. You enjoy more freedom.</strong>
+          </div>
+          <a className="services-text-alex" href="tel:2144786215">Text Alex</a>
+        </div>
+      </section>
 
-          <p className="pride-message">
-            <span>SERVING OUR</span>
-            <span>NEIGHBORS IN</span>
-            <span>ROCKWALL &amp; HEATH</span>
-          </p>
-        </section>
+      <section className="card-footer contact-strip" aria-label="Patriot Neighborhood Services contact information">
+        <address className="contact-list">
+          {contactItems.map((item) => (
+            <div className="contact-row" key={item.label}>
+              <span className="icon-circle">
+                <ContactIcon type={item.icon} />
+              </span>
+              <span>{item.label}</span>
+            </div>
+          ))}
+        </address>
+
+        <div className="footer-divider" aria-hidden="true" />
+
+        <p className="pride-message">
+          <span>SERVING OUR</span>
+          <span>NEIGHBORS IN</span>
+          <span>ROCKWALL &amp; HEATH</span>
+        </p>
       </section>
 
       <section className="quote-cta" aria-label="Patriot Neighborhood Services tagline">
@@ -177,42 +214,6 @@ export default function Home() {
           <p>
             When he’s not working, you’ll usually find him under the hood of a car, spending time with friends, or planning the next way to grow his business.
           </p>
-        </div>
-      </section>
-
-      <section className="services-section" aria-labelledby="services-heading">
-        <div className="services-section-top">
-          <h2 id="services-heading">Services Offered</h2>
-          <p>Simple neighborhood help for Rockwall &amp; Heath.</p>
-        </div>
-
-        <div className="services-visual-grid">
-          {services.map((service, index) => (
-            <a
-              className={`service-tile ${service.icon}`}
-              href="tel:2144786215"
-              key={service.title}
-              data-number={String(index + 1).padStart(2, "0")}
-            >
-              <div className="service-icon">
-                <ServiceIcon type={service.icon} />
-              </div>
-              <h3>{service.title}</h3>
-              <p className="service-summary">{service.summary}</p>
-              <div className="service-chips" aria-label={`${service.title} details`}>
-                {service.chips.map((chip) => (
-                  <span className="service-chip" key={chip}>{chip}</span>
-                ))}
-              </div>
-            </a>
-          ))}
-        </div>
-
-        <div className="services-bottom-band">
-          <div>
-            <strong>We handle the to-do list. You enjoy more freedom.</strong>
-          </div>
-          <a className="services-text-alex" href="tel:2144786215">Text Alex</a>
         </div>
       </section>
 
