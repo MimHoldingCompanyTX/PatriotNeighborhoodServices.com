@@ -179,6 +179,72 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="proof-section" aria-labelledby="proof-heading">
+        <div className="proof-header">
+          <div className="proof-copy">
+            <p className="proof-eyebrow">Power washing results</p>
+            <h2 id="proof-heading">Before &amp; after gallery</h2>
+            <p>
+              Hover or tap an example to quickly identify the job type. Open an image to see the transformation larger.
+            </p>
+          </div>
+
+          <ul className="proof-list" aria-label="Power washing result highlights">
+            <li>Removes dark surface buildup</li>
+            <li>Brightens concrete and walkway areas</li>
+            <li>Great for patios, sidewalks, and play spaces</li>
+          </ul>
+        </div>
+
+        <div className="proof-gallery" aria-label="Power washing before and after examples">
+          <a
+            className="proof-photo-card proof-example-tall"
+            href="/power-washing-before-after-sports-court.jpg"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open patio and sports court before and after power washing example"
+          >
+            <Image
+              className="proof-photo"
+              src="/power-washing-before-after-sports-court.jpg"
+              alt="Before and after power washing comparison of a backyard patio and sports court"
+              width={960}
+              height={1280}
+              sizes="(max-width: 760px) 92vw, 560px"
+            />
+            <span className="proof-type-badge">Patio / Sports Court</span>
+            <span className="proof-hover-panel">
+              <strong>Patio / sports court</strong>
+              <span>Tap to view this before-and-after larger.</span>
+            </span>
+          </a>
+
+          <a
+            className="proof-photo-card proof-example-wide"
+            href="/sidewalk-before-after-power-washing.jpg"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open sidewalk before and after power washing example"
+          >
+            <Image
+              className="proof-photo"
+              src="/sidewalk-before-after-power-washing.jpg"
+              alt="Before and after power washing comparison of a residential sidewalk"
+              width={1200}
+              height={800}
+              sizes="(max-width: 760px) 92vw, 560px"
+            />
+            <span className="proof-type-badge">Sidewalk</span>
+            <span className="proof-hover-panel">
+              <strong>Sidewalk cleaning</strong>
+              <span>Tap to view this before-and-after larger.</span>
+            </span>
+          </a>
+        </div>
+
+        <a className="proof-cta" href="tel:2144786215">Text Alex about power washing</a>
+      </section>
+
       <section className="testimonials-section" aria-labelledby="testimonials-heading">
         <div className="testimonials-header">
           <p className="testimonials-eyebrow">Trusted by local families</p>
