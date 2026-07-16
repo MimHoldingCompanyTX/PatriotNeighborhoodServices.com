@@ -20,10 +20,10 @@ const services = [
     chips: ["Auto", "Truck", "Golf cart"],
   },
   {
-    icon: "flag",
-    title: "Flag Installation",
-    summary: "Install. Maintain. Display.",
-    chips: ["Setup", "Care", "Upkeep"],
+    icon: "cedar-restoration",
+    title: "Cedar Restoration",
+    summary: "Doors. Fences. Exterior wood.",
+    chips: ["Cedar doors", "Fences", "Wood care"],
   },
   {
     icon: "exterior-cleaning",
@@ -79,12 +79,14 @@ function ContactIcon({ type }: { type: string }) {
 }
 
 function ServiceIcon({ type }: { type: string }) {
-  if (type === "flag") {
+  if (type === "cedar-restoration") {
     return (
       <svg viewBox="0 0 64 64" aria-hidden="true">
         <path d="M16 55V9" />
-        <path d="M18 11c10-5 17 5 28 0v27c-11 5-18-5-28 0" />
-        <path d="M23 17c7-2 13 4 20 1M23 24c7-2 13 4 20 1M23 31c7-2 13 4 20 1" />
+        <path d="M22 12h-6M22 16h-8M22 20h-6M22 24h-10M18 28.5h-4" />
+        <path d="M32 8l6 47h-6M44 55V9" />
+        <path d="M50 12h-6M50 16h-8M50 20h-6M50 24h-10M46 28.5h-4" />
+        <path d="M24 47h16v8H24z" />
       </svg>
     );
   }
