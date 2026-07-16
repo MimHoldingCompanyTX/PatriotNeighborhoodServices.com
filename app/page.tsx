@@ -20,8 +20,8 @@ const services = [
     chips: ["Auto", "Truck", "Golf cart"],
   },
   {
-    icon: "cedar-restoration",
-    title: "Cedar Restoration",
+    icon: "wood-restoration",
+    title: "Wood Restoration",
     summary: "Doors. Fences. Exterior wood.",
     chips: ["Cedar doors", "Fences", "Wood care"],
   },
@@ -79,7 +79,7 @@ function ContactIcon({ type }: { type: string }) {
 }
 
 function ServiceIcon({ type }: { type: string }) {
-  if (type === "cedar-restoration") {
+  if (type === "wood-restoration") {
     return (
       <svg viewBox="0 0 64 64" aria-hidden="true">
         <path d="M16 55V9" />
@@ -153,11 +153,11 @@ export default function Home() {
 
         <div className="services-visual-grid">
           {services.map((service, index) => {
-            const hasPowerWashExamples = service.icon === "power-washing";
+            const hasProof = service.icon === "power-washing" || service.icon === "wood-restoration";
 
             return (
               <article
-                className={`service-tile ${service.icon} ${hasPowerWashExamples ? "has-proof-actions" : ""}`}
+                className={`service-tile ${service.icon} ${hasProof ? "has-proof-actions" : ""}`}
                 key={service.title}
                 data-number={String(index + 1).padStart(2, "0")}
               >
@@ -172,7 +172,11 @@ export default function Home() {
                   ))}
                 </div>
 
-                {hasPowerWashExamples ? (
+                {service.icon === "wood-restoration" ? (
+                  <div className="service-proof-actions" aria-label="Wood restoration before and after examples">
+                    <a href="#wood-door-modal">Door before/after</a>
+                  </div>
+                ) : service.icon === "power-washing" ? (
                   <div className="service-proof-actions" aria-label="Power washing before and after examples">
                     <a href="#powerwash-patio-modal">Patio before/after</a>
                     <a href="#powerwash-sidewalk-modal">Sidewalk before/after</a>
@@ -186,7 +190,7 @@ export default function Home() {
         </div>
 
         <p className="service-proof-note">
-          Tap the buttons on the Power Washing card to view before-and-after pop-ups.
+          Tap the buttons on a service card to view before-and-after pop-ups.
         </p>
 
         <div className="services-bottom-band">
@@ -229,12 +233,28 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="proof-lightbox" id="wood-door-modal" aria-label="Cedar door restoration before and after photo">
+        <a className="proof-lightbox-backdrop" href="#services-heading" aria-label="Close door restoration photo" />
+        <div className="proof-lightbox-card proof-lightbox-wide">
+          <a className="proof-lightbox-close" href="#services-heading" aria-label="Close door restoration photo">×</a>
+          <p className="proof-lightbox-label">Cedar Door Restoration</p>
+          <Image
+            className="proof-lightbox-image"
+            src="/wood-door-before-after.jpg"
+            alt="Large before and after comparison of a cedar garage door restoration"
+            width={1200}
+            height={400}
+            sizes="92vw"
+          />
+        </div>
+      </section>
+
       <section className="testimonials-section" aria-labelledby="testimonials-heading">
         <div className="testimonials-header">
           <p className="testimonials-eyebrow">Trusted by local families</p>
           <h2 id="testimonials-heading">What Neighbors Are Saying</h2>
           <p>
-            Real reviews from customers who trusted Alex with their vehicles.
+            Real reviews from customers who trusted Alex with their vehicles and home projects.
           </p>
         </div>
 
