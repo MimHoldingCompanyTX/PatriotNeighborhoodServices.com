@@ -153,7 +153,7 @@ export default function Home() {
 
         <div className="services-visual-grid">
           {services.map((service, index) => {
-            const hasProof = service.icon === "power-washing" || service.icon === "wood-restoration";
+            const hasProof = service.icon === "power-washing" || service.icon === "wood-restoration" || service.icon === "exterior-cleaning";
 
             return (
               <article
@@ -175,6 +175,10 @@ export default function Home() {
                 {service.icon === "wood-restoration" ? (
                   <div className="service-proof-actions" aria-label="Wood restoration before and after examples">
                     <a href="#wood-door-modal">Door before/after</a>
+                  </div>
+                ) : service.icon === "exterior-cleaning" ? (
+                  <div className="service-proof-actions" aria-label="Exterior cleaning before and after examples">
+                    <a href="#exterior-modal">Before/after</a>
                   </div>
                 ) : service.icon === "power-washing" ? (
                   <div className="service-proof-actions" aria-label="Power washing before and after examples">
@@ -242,6 +246,22 @@ export default function Home() {
             className="proof-lightbox-image"
             src="/wood-door-before-after.jpg"
             alt="Large before and after comparison of a cedar garage door restoration"
+            width={1200}
+            height={400}
+            sizes="92vw"
+          />
+        </div>
+      </section>
+
+      <section className="proof-lightbox" id="exterior-modal" aria-label="Exterior cleaning before and after photo">
+        <a className="proof-lightbox-backdrop" href="#services-heading" aria-label="Close exterior cleaning photo" />
+        <div className="proof-lightbox-card proof-lightbox-wide">
+          <a className="proof-lightbox-close" href="#services-heading" aria-label="Close exterior cleaning photo">×</a>
+          <p className="proof-lightbox-label">Exterior Cleaning</p>
+          <Image
+            className="proof-lightbox-image"
+            src="/exterior-before-after.jpg"
+            alt="Large before and after comparison of exterior cleaning"
             width={1200}
             height={400}
             sizes="92vw"
