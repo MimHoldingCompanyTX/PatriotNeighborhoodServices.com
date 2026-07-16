@@ -150,26 +150,42 @@ export default function Home() {
         </div>
 
         <div className="services-visual-grid">
-          {services.map((service, index) => (
-            <a
-              className={`service-tile ${service.icon}`}
-              href="tel:2144786215"
-              key={service.title}
-              data-number={String(index + 1).padStart(2, "0")}
-            >
-              <div className="service-icon">
-                <ServiceIcon type={service.icon} />
-              </div>
-              <h3>{service.title}</h3>
-              <p className="service-summary">{service.summary}</p>
-              <div className="service-chips" aria-label={`${service.title} details`}>
-                {service.chips.map((chip) => (
-                  <span className="service-chip" key={chip}>{chip}</span>
-                ))}
-              </div>
-            </a>
-          ))}
+          {services.map((service, index) => {
+            const hasPowerWashExamples = service.icon === "power-washing";
+
+            return (
+              <article
+                className={`service-tile ${service.icon} ${hasPowerWashExamples ? "has-proof-actions" : ""}`}
+                key={service.title}
+                data-number={String(index + 1).padStart(2, "0")}
+              >
+                <div className="service-icon">
+                  <ServiceIcon type={service.icon} />
+                </div>
+                <h3>{service.title}</h3>
+                <p className="service-summary">{service.summary}</p>
+                <div className="service-chips" aria-label={`${service.title} details`}>
+                  {service.chips.map((chip) => (
+                    <span className="service-chip" key={chip}>{chip}</span>
+                  ))}
+                </div>
+
+                {hasPowerWashExamples ? (
+                  <div className="service-proof-actions" aria-label="Power washing before and after examples">
+                    <a href="#powerwash-patio-modal">Patio before/after</a>
+                    <a href="#powerwash-sidewalk-modal">Sidewalk before/after</a>
+                  </div>
+                ) : (
+                  <a className="service-call-link" href="tel:2144786215">Text Alex</a>
+                )}
+              </article>
+            );
+          })}
         </div>
+
+        <p className="service-proof-note">
+          Tap the buttons on the Power Washing card to view before-and-after pop-ups.
+        </p>
 
         <div className="services-bottom-band">
           <div>
@@ -179,70 +195,36 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="proof-section" aria-labelledby="proof-heading">
-        <div className="proof-header">
-          <div className="proof-copy">
-            <p className="proof-eyebrow">Power washing results</p>
-            <h2 id="proof-heading">Before &amp; after gallery</h2>
-            <p>
-              Hover or tap an example to quickly identify the job type. Open an image to see the transformation larger.
-            </p>
-          </div>
-
-          <ul className="proof-list" aria-label="Power washing result highlights">
-            <li>Removes dark surface buildup</li>
-            <li>Brightens concrete and walkway areas</li>
-            <li>Great for patios, sidewalks, and play spaces</li>
-          </ul>
+      <section className="proof-lightbox" id="powerwash-patio-modal" aria-label="Patio and sports court before and after photo">
+        <a className="proof-lightbox-backdrop" href="#services-heading" aria-label="Close patio and sports court photo" />
+        <div className="proof-lightbox-card">
+          <a className="proof-lightbox-close" href="#services-heading" aria-label="Close patio and sports court photo">×</a>
+          <p className="proof-lightbox-label">Patio / Sports Court Power Washing</p>
+          <Image
+            className="proof-lightbox-image"
+            src="/power-washing-before-after-sports-court.jpg"
+            alt="Large before and after power washing comparison of a backyard patio and sports court"
+            width={960}
+            height={1280}
+            sizes="92vw"
+          />
         </div>
+      </section>
 
-        <div className="proof-gallery" aria-label="Power washing before and after examples">
-          <a
-            className="proof-photo-card proof-example-tall"
-            href="/power-washing-before-after-sports-court.jpg"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open patio and sports court before and after power washing example"
-          >
-            <Image
-              className="proof-photo"
-              src="/power-washing-before-after-sports-court.jpg"
-              alt="Before and after power washing comparison of a backyard patio and sports court"
-              width={960}
-              height={1280}
-              sizes="(max-width: 760px) 92vw, 560px"
-            />
-            <span className="proof-type-badge">Patio / Sports Court</span>
-            <span className="proof-hover-panel">
-              <strong>Patio / sports court</strong>
-              <span>Tap to view this before-and-after larger.</span>
-            </span>
-          </a>
-
-          <a
-            className="proof-photo-card proof-example-wide"
-            href="/sidewalk-before-after-power-washing.jpg"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open sidewalk before and after power washing example"
-          >
-            <Image
-              className="proof-photo"
-              src="/sidewalk-before-after-power-washing.jpg"
-              alt="Before and after power washing comparison of a residential sidewalk"
-              width={1200}
-              height={800}
-              sizes="(max-width: 760px) 92vw, 560px"
-            />
-            <span className="proof-type-badge">Sidewalk</span>
-            <span className="proof-hover-panel">
-              <strong>Sidewalk cleaning</strong>
-              <span>Tap to view this before-and-after larger.</span>
-            </span>
-          </a>
+      <section className="proof-lightbox" id="powerwash-sidewalk-modal" aria-label="Sidewalk before and after photo">
+        <a className="proof-lightbox-backdrop" href="#services-heading" aria-label="Close sidewalk photo" />
+        <div className="proof-lightbox-card proof-lightbox-wide">
+          <a className="proof-lightbox-close" href="#services-heading" aria-label="Close sidewalk photo">×</a>
+          <p className="proof-lightbox-label">Sidewalk Power Washing</p>
+          <Image
+            className="proof-lightbox-image"
+            src="/sidewalk-before-after-power-washing.jpg"
+            alt="Large before and after power washing comparison of a residential sidewalk"
+            width={1200}
+            height={800}
+            sizes="92vw"
+          />
         </div>
-
-        <a className="proof-cta" href="tel:2144786215">Text Alex about power washing</a>
       </section>
 
       <section className="testimonials-section" aria-labelledby="testimonials-heading">

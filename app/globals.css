@@ -354,8 +354,8 @@ body {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  min-height: 430px;
-  padding: 22px;
+  min-height: 450px;
+  padding: 22px 22px 122px;
   color: #ffffff;
   text-decoration: none;
   background: var(--patriot-navy);
@@ -462,7 +462,7 @@ body {
 .service-chips {
   position: absolute;
   right: 22px;
-  bottom: 22px;
+  bottom: 70px;
   left: 22px;
   display: flex;
   flex-wrap: wrap;
@@ -479,6 +479,56 @@ body {
   background: rgb(255 255 255 / 0.14);
   border: 1px solid rgb(255 255 255 / 0.2);
   border-radius: 999px;
+}
+
+.service-proof-actions,
+.service-call-link {
+  position: absolute;
+  right: 22px;
+  bottom: 22px;
+  left: 22px;
+  z-index: 3;
+}
+
+.service-proof-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.service-proof-actions a,
+.service-call-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 9px 11px;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: var(--patriot-red);
+  border: 2px solid #ffffff;
+  border-radius: 999px;
+  box-shadow: 0 10px 22px rgb(0 0 0 / 0.22);
+}
+
+.service-call-link {
+  width: fit-content;
+  min-width: 128px;
+}
+
+.service-proof-actions a:hover,
+.service-proof-actions a:focus-visible,
+.service-call-link:hover,
+.service-call-link:focus-visible {
+  color: #ffffff;
+  background: #d5292f;
+  outline: 3px solid rgb(255 255 255 / 0.34);
+  outline-offset: 2px;
 }
 
 .services-bottom-band {
@@ -531,29 +581,26 @@ body {
   box-shadow: 0 12px 28px rgb(0 0 0 / 0.24);
 }
 
-.proof-section {
+.powerwash-showcase {
   display: grid;
-  gap: clamp(22px, 4vw, 36px);
-  width: min(1220px, calc(100% - 32px));
-  margin: 0 auto clamp(18px, 3vw, 32px);
-  padding: clamp(28px, 5vw, 58px);
+  grid-template-columns: minmax(0, 0.78fr) minmax(420px, 1fr);
+  align-items: start;
+  gap: clamp(18px, 4vw, 44px);
+  margin-top: 18px;
+  padding: clamp(22px, 4vw, 42px);
   color: #ffffff;
   background:
-    radial-gradient(circle at 12% 18%, rgb(255 255 255 / 0.16), transparent 20%),
-    radial-gradient(circle at 85% 12%, rgb(178 31 36 / 0.35), transparent 24%),
+    radial-gradient(circle at 10% 16%, rgb(255 255 255 / 0.16), transparent 22%),
+    radial-gradient(circle at 92% 12%, rgb(178 31 36 / 0.38), transparent 26%),
     linear-gradient(135deg, var(--patriot-navy), var(--patriot-blue));
+  border: 2px solid rgb(255 255 255 / 0.18);
   border-radius: 34px;
   box-shadow: 0 24px 70px rgb(8 24 49 / 0.18);
 }
 
-.proof-header {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.72fr);
-  align-items: end;
-  gap: clamp(18px, 4vw, 44px);
-}
-
-.proof-copy {
+.powerwash-showcase-copy {
+  position: sticky;
+  top: 16px;
   display: grid;
   gap: 16px;
 }
@@ -573,23 +620,23 @@ body {
   border-radius: 999px;
 }
 
-.proof-copy h2 {
-  max-width: 780px;
+.powerwash-showcase-copy h3 {
+  max-width: 580px;
   margin: 0;
   color: #ffffff;
-  font-size: clamp(46px, 7vw, 88px);
+  font-size: clamp(42px, 6vw, 76px);
   font-weight: 900;
-  line-height: 0.82;
+  line-height: 0.84;
   text-transform: uppercase;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.055em;
   text-shadow: 0 10px 28px rgb(0 0 0 / 0.24);
 }
 
-.proof-copy p {
-  max-width: 760px;
+.powerwash-showcase-copy p:not(.proof-eyebrow) {
+  max-width: 580px;
   margin: 0;
   color: rgb(255 255 255 / 0.86);
-  font-size: clamp(21px, 2.25vw, 29px);
+  font-size: clamp(20px, 2.05vw, 27px);
   font-weight: 900;
   line-height: 1.04;
   text-transform: uppercase;
@@ -745,6 +792,88 @@ body {
     opacity: 1;
     transform: none;
   }
+}
+
+.proof-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: clamp(16px, 4vw, 44px);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+
+.proof-lightbox:target {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.proof-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgb(3 10 22 / 0.82);
+  backdrop-filter: blur(10px);
+}
+
+.proof-lightbox-card {
+  position: relative;
+  z-index: 1;
+  width: min(560px, 94vw);
+  max-height: 90vh;
+  overflow: auto;
+  padding: clamp(10px, 2vw, 16px);
+  background: #ffffff;
+  border: 4px solid rgb(255 255 255 / 0.45);
+  border-radius: 30px;
+  box-shadow: 0 34px 100px rgb(0 0 0 / 0.42);
+  transform: translateY(20px) scale(0.98);
+  transition: transform 0.18s ease;
+}
+
+.proof-lightbox:target .proof-lightbox-card {
+  transform: translateY(0) scale(1);
+}
+
+.proof-lightbox-wide {
+  width: min(980px, 94vw);
+}
+
+.proof-lightbox-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.proof-lightbox-label {
+  margin: 0 54px 10px 4px;
+  color: var(--patriot-navy);
+  font-size: clamp(20px, 2.6vw, 32px);
+  font-weight: 900;
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.035em;
+}
+
+.proof-lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1;
+  text-decoration: none;
+  background: var(--patriot-red);
+  border-radius: 999px;
 }
 
 .testimonials-section {
@@ -934,6 +1063,14 @@ body {
   .service-tile {
     min-height: 360px;
   }
+
+  .powerwash-showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .powerwash-showcase-copy {
+    position: static;
+  }
 }
 
 @media (max-width: 760px) {
@@ -1038,19 +1175,17 @@ body {
     width: 100%;
   }
 
-  .proof-section {
-    width: min(100% - 22px, 1220px);
-    padding: 24px 18px 22px;
+  .powerwash-showcase {
+    padding: 22px 14px 18px;
     border-radius: 26px;
   }
 
-  .proof-header,
-  .proof-gallery {
-    grid-template-columns: 1fr;
+  .powerwash-showcase-copy h3 {
+    font-size: clamp(42px, 13vw, 66px);
   }
 
-  .proof-copy h2 {
-    font-size: clamp(42px, 13vw, 66px);
+  .proof-gallery {
+    grid-template-columns: 1fr;
   }
 
   .proof-cta {
